@@ -22,4 +22,4 @@ Go ahead and give it a try. I'll provide a list of valid logins below:
     Stan    9012
     Adam    0123
 
-The machine's balance will reset when you reboot the computer, but when a user runs out of money they are bankrupt!
+The machine's balance will reset when you reboot the program, but when a user runs out of money they are bankrupt!
