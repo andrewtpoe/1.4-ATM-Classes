@@ -1,12 +1,12 @@
 1.4-ATM-Classes - Andrew T. Poe
 
-This program contains a significant refactoring on the prior ATM program's I have submitted.
+This program contains a significant refactoring on the prior ATM programs I have submitted.
 
 Program remains fully object oriented. Each class is now broken into separate files that must first be imported into the main file, 'assignment.rb'
 
 Program imports user account data, and updates the file whenever a new withdrawal takes place. I accomplished by performing a complete rewrite of the file, who's contents are currently stored in the memory. This is sufficient for this example, but a more real world application would require updating only the piece of information being changed.
 
-Several Bug Fixes have also been completed. In past programs withdrawing a negative amount would actually add money to both the user's account and the ATM's balance.
+Several bug fixes have also been completed. In past programs withdrawing a negative amount would actually add money to both the user's account and the ATM's balance.
 
 Go ahead and give it a try. I'll provide a list of valid logins below:
 
@@ -22,4 +22,4 @@ Go ahead and give it a try. I'll provide a list of valid logins below:
     Stan    9012
     Adam    0123
 
-The machine's balance will reset when you reboot the computer, but when a user runs out of money they are bankrupt!
+The machine's balance will reset when you reboot the program, but when a user runs out of money they are bankrupt!
