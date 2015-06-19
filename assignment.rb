@@ -127,12 +127,12 @@ class Program
   # user id and pin to match. If no match is found, valid user is left false.
   def get_user(login)
     match_found = false
-    puts @account_holders.inspect
+#    puts @account_holders.inspect
     @account_holders.each do |user|
-      puts "Check name: #{user.name}"
-      puts "Against name: #{login[:name]}"
-      puts "Check pin: #{user.pin}"
-      puts "Against pin: #{login[:pin]}"
+ #     puts "Check name: #{user.name}"
+ #     puts "Against name: #{login[:name]}"
+ #     puts "Check pin: #{user.pin}"
+ #     puts "Against pin: #{login[:pin]}"
       if user.name == login[:name] && user.pin == login[:pin]
         @show_acc_menu = true
         match_found = true
