@@ -13,7 +13,7 @@ require './classes/machine'
 
 
 # The program class provides the actual functionality of the program.
-class Program 
+class Program
   MAIN_MENU = ['1: Login to your account', '2: View ATM balance', '3: Exit program'].freeze
   ACC_MENU = ['1: Check balance', '2: Make withdrawal', '3: Log out of your account'].freeze
 
@@ -24,7 +24,7 @@ class Program
     @show_acc_menu = false
     @exit_prog = false
     @data_file = 'user-data/users.csv'
-    
+
     # Create the array of user classes by parsing the supplied data file
     parse_data_file(@data_file)
   end
@@ -73,7 +73,7 @@ class Program
       puts "Now exiting the ATM program. Goobye."
       puts ""
 
-    # This else should be theoretically impossible. 
+    # This else should be theoretically impossible.
     else
       display_error()
     end
@@ -84,7 +84,7 @@ class Program
     @exit_prog
   end
 
-  # This method displays input prompt and returns the value input as a string. 
+  # This method displays input prompt and returns the value input as a string.
   # Loops until input is given.
   def get_input(prompt)
     var = ""
@@ -96,6 +96,7 @@ class Program
     end
 
     var
+
   end
 
   # Gathers the user's login and pin information
@@ -103,24 +104,26 @@ class Program
     name = get_input("Please enter your name")
     pin = get_input("Please enter your pin")
     login = { name: name, pin: pin}
-  
+
    login
+
   end
 
-  # This method displays a menu and verifies that the 
-  # input collected and returned is a valid option. 
+  # This method displays a menu and verifies that the
+  # input collected and returned is a valid option.
   # Menu must be an array with options starting at 1.
   def get_menu_selection(menu)
     men_sel = 0
-    while !(1..menu.count).include?(men_sel)
+    until (1..menu.count).include?(men_sel)
       men_sel = get_input(menu.join("\n")).to_i
-      if !(1..menu.count).include?(men_sel)
+      unless (1..menu.count).include?(men_sel)
         puts "Invalid entry. Try again."
         puts ""
       end
     end
 
     men_sel
+
   end
 
   # This method takes login info and searches the "database" for a valid
@@ -136,12 +139,12 @@ class Program
         return user
       end
     end
-    if match_found == false
+    unless match_found
       puts "Something went wrong. Please start over."
       puts ""
     end
   end
-  
+
   def display_error
     puts "Something has gone horribly wrong. This machine"
     puts "is now set to self detonate. You should run."
@@ -179,23 +182,25 @@ class Program
     # Ask the user how much they would like to withdraw from their account
     amount = get_input("How much would you like to withdraw?").to_i
     # Let's make sure the account and the ATM can handle this transaction
-    if @user.can_withdraw?(amount) && @atm.can_withdraw?(amount)
+    user_can_withdraw = @user.can_withdraw?(amount)
+    atm_can_withdraw = @atm.can_withdraw?(amount)
+    if user_can_withdraw && atm_can_withdraw
       # Passed that check. Now update account amounts in memory and on file...
       @user.deduct(amount)
       @atm.deduct(amount)
       update_data_file(@data_file)
       # ... and dispense the monies.
       puts "Sure thing. Dispensing cash below..."
-      puts "" 
+      puts ""
       puts "Your new balance is $#{@user.balance}"
       puts ""
     elsif amount <= 0
       puts "You can not withdraw a negative amount."
       puts ""
-    elsif !@user.can_withdraw?(amount)
+    elsif !user_can_withdraw
       puts "You have asked to withdraw more than you have in your account"
       puts ""
-    elsif !@atm.can_withdraw?(amount)
+    elsif !atm_can_withdraw
       puts "ATM has insufficient balance to fulfill this request."
       puts ""
     else
@@ -247,49 +252,3 @@ program = Program.new(atm)
 while program.exit_prog == false
   program.run
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

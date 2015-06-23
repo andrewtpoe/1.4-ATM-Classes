@@ -4,7 +4,7 @@ This program contains a significant refactoring on the prior ATM programs I have
 
 Program remains fully object oriented. Each class is now broken into separate files that must first be imported into the main file, 'assignment.rb'
 
-Program imports user account data, and updates the file whenever a new withdrawal takes place. I accomplished by performing a complete rewrite of the file, who's contents are currently stored in the memory. This is sufficient for this example, but a more real world application would require updating only the piece of information being changed.
+Program imports user account data, and updates the file whenever a new withdrawal takes place. I accomplished by performing a complete rewrite of the file, whose contents are currently stored in the memory. This is sufficient for this example, but a more real world application would require updating only the piece of information being changed.
 
 Several bug fixes have also been completed. In past programs withdrawing a negative amount would actually add money to both the user's account and the ATM's balance.
 

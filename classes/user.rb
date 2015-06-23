@@ -1,8 +1,6 @@
 # The User class describes an account holder.
 class User
-  attr_accessor :name
-  attr_accessor :pin
-  attr_accessor :balance
+  attr_accessor :name, :pin, :balance
 
   def initialize
     @name = ""
